@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      font-family: 'Poppins';
+      background-color: #3794e0;
+    }
+
+    h1{
+      color: lightslategray;
+      text-align: center;
+    }
+
+    .container-center{
+      background-color: #ffffff;
+      margin: 0;
+      padding: 1cm;
+      padding-top: 0;
+      padding-bottom: 1.7cm;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      overflow-y: hidden;
+    }
+
+    .container-center-bottom{
+      background-color: #eee;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    a{
+      text-decoration: none;
+      color: #3794e0;
+    }
+
+    input{
+      outline: none;
+      border: none;
+      background-color: #eee;
+      padding: 10px;
+      width: 6cm;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    input:focus{
+      background-color: #dedede;
+      transition: background-color 0.3s;
+    }
+
+    #remember-me{
+      width: auto;
+      vertical-align: top;
+    }
+
+    .submit-button{
+      font-family: 'Poppins';
+      color: #ffffff;
+      background-color: #1c77ff;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      padding: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .submit-button:focus{
+      background-color: #1e69da;
+      transition: background-color 0.3s;
+    }
+
+    .error-box{
+      background-color: #f9d3d3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-center">
+    <h1>Sign Up</h3>
+
+    <form method="POST" action="/signup" onsubmit="return validate()">
+      <input name="username" placeholder="Name" required><br><br>
+      <input type="email" name="usermail" placeholder="Email" required><br><br>
+      <input type="password" name="password" placeholder="Password" required><br><br>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+      
+      <button class="submit-button" type="submit" name="submit" value="Submit">
+        <b>Sign Up</b>
+      </button><br><br>
+    </form>
+
+    <div class="container-center-bottom">
+      <p>Have an account? <a href="/login">Login here.</a></p>
+    </div>
+  </div>
+</body>
+
+<script>
+  function validate(){
+    var emailInput = document.getElementsByName("usermail")[0];
+    var pwdInput = document.getElementsByName("password")[0]
+    var confirmPwdInput = document.getElementsByName("confirm_password")[0]
+
+    emailInput.classList.add("error-box")
+    pwdInput.classList.add("error-box")
+    confirmPwdInput.classList.add("error-box")
+
+    //console.log(pwdInput.value)
+    //console.log(confirmPwdInput.value)
+
+    return false
+  }
+</script>
+</html>
